@@ -1,0 +1,80 @@
+﻿@model DesafioRueda.Models.Pessoa
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<hr />
+<div class="row">
+
+    <form asp-action="Edit">
+        <div class="col-md-4">
+
+            <h4>Pessoa</h4>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Data" class="control-label"></label>
+                <input asp-for="Data" class="form-control" />
+                <span asp-validation-for="Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Salario" class="control-label"></label>
+                <input asp-for="Salario" class="form-control" />
+                <span asp-validation-for="Salario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+        <div class="col-md-6">
+
+            <h4>Telefones</h4>
+            <table class="table">
+                <thead>
+                <th>Fixo</th>
+                <th>Numero</th>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Telefones.Count; i++)
+                    {
+                        <tr>
+                            <td class="form-group">
+                                <select name="Telefones[@i].TipoTelefone">
+                                    <option value="Fixo">Fixo</option>
+                                    <option value="Celular">Celular</option>
+                                </select>
+
+                            </td>
+
+                            <td class="form-group">
+                           
+                                <input class="form-control" type="hidden" asp-for="@Model.Telefones[@i].Id" />
+                                <input class="form-control" type="hidden" asp-for="@Model.Telefones[@i].PessoaId" />
+                                <input class="form-control" type="text" asp-for="@Model.Telefones[@i].Numero" />
+                            </td>
+                        </tr>
+                    }
+                    
+                </tbody>
+            </table>
+        </div>
+    </form>
+</div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+ }

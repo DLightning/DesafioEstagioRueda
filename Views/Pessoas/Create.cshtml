@@ -1,0 +1,152 @@
+﻿@model DesafioRueda.Models.Pessoa
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Pessoa</h4>
+<hr />
+<div class="row">
+    <form asp-action="Create">
+        <div class="col-md-4">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Data" class="control-label"></label>
+                <input asp-for="Data" class="form-control" />
+                <span name="Data" id="data-validation" class="text-danger" style="display:none">precisa ser maior que 18 e menor que 60</span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Salario" class="control-label"></label>
+                <input asp-for="Salario" class="form-control" />
+                <span asp-validation-for="Salario" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="button" value="Create" class="btn btn-default" id="create" onclick="enviarForm()" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-2"><h4>Telefones</h4></div>
+                <div class="col-md-2"><input type="button" id="btnAddTelefone" class="btn btn-primary" value="Add Telefone" /></div>
+            </div>
+
+            <table id="celTable" class="table">
+                <thead>
+                    <th>Tipo</th>
+                    <th>Número</th>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+            
+            
+        </div>
+    </form>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script type="text/javascript">
+    function enviarForm() {
+         
+        if (!validaData()) {
+            removerMascara();
+            document.forms[0].submit();
+        } 
+
+    }
+    function removerMascara() {
+        for (var i = 0; i < qtd; i++) {
+            var labelNumero = "#numero" + i;
+            $(labelNumero).unmask();
+        }
+    }
+    function validaData() {
+        var data = $("#Data").val();
+        var date = new Date(data);
+        var yearNow = new Date().getFullYear();
+        var maxYear = yearNow - 60;
+        var minYear = yearNow - 18;
+        if (date.getFullYear() > minYear || date.getFullYear() < maxYear) {
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+     
+    function validaMask(qtd) {
+        var numero = "#numero" + qtd;
+        var tipoTelefone = "#tipoTelefone" + qtd;
+        var tipo = $(tipoTelefone).val();
+        $(numero).val('');
+        if (tipo == "Fixo") {
+
+            $(numero).mask('(00) 0000-0000');
+        } else {
+
+            $(numero).mask('(00) 00000-0000');
+        }
+    }
+    var qtd = 0;
+    $(document).ready(function () {
+        
+       
+        $("#btnAddTelefone").on("click", function () {
+           
+
+            $("#celTable > tbody").append(
+                '<tr><td class="form-group"><select name="' + 'Telefones[' + qtd + '].TipoTelefone" id="' + 'tipoTelefone' + qtd + '" onchange="validaMask('+qtd+')"' +'><option value="Fixo">Fixo</option><option value="Celular">Celular</option><select></td>'+
+              
+                '<td class="form-group"><input name="' + 'Telefones[' + qtd + '].Numero" id="'+'numero'+qtd+'"' + 'class="form-control" />' +
+                '<span asp-validation-for="'+ 'Telefones['+ qtd +'].Numero"' + 'class="text-danger"></span>' +
+                '</td>' +
+                '</tr>'
+            );
+            
+            var id = "#tipoTelefone"+qtd;
+            var numero = "#numero"+qtd;
+            var tipo = $(id).val();
+     
+            if (tipo == "Fixo") {
+                
+                $(numero).mask('(00) 0000-0000');
+            } else {
+               
+                $(numero).mask('(00) 00000-0000');
+            }
+            
+            qtd++;
+            
+        });
+
+
+
+        $("#Data").change(function () {
+           
+            if (validaData()) {
+              
+                document.getElementById("data-validation").style.display = "block";
+            } else {
+                document.getElementById("data-validation").style.display = "none";
+            }
+            
+        });
+
+	});
+</script>
+}
