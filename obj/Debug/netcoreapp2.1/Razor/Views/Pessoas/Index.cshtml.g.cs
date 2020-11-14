@@ -70,7 +70,7 @@ using DesafioRueda.Models;
             WriteLiteral("\r\n<h2>Index</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(120, 43, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0ef451d99c344f6fbeea0578233bea00", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "510f64ab92324252807d10ad8204fa9d", async() => {
                 BeginContext(143, 16, true);
                 WriteLiteral("Cadastrar Pessoa");
                 EndContext();
@@ -92,7 +92,7 @@ using DesafioRueda.Models;
             WriteLiteral("\r\n</p>\r\n\r\n");
             EndContext();
             BeginContext(173, 186, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ed0543fc54dc4ea78577478b10b15dd1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7f9245e0adfe4632b3f0afa124326188", async() => {
                 BeginContext(228, 124, true);
                 WriteLiteral("\r\n    <p>\r\n        Nome: <input type=\"text\" name=\"SearchString\">\r\n        <input type=\"submit\" value=\"Buscar\" />\r\n    </p>\r\n");
                 EndContext();
@@ -228,7 +228,7 @@ using DesafioRueda.Models;
             WriteLiteral("            </td>  \r\n                <td>\r\n                    ");
             EndContext();
             BeginContext(1661, 53, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d7091e337ee41c19fc85370b81f6cba", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "74339c795504400ab749d776e2ca4f75", async() => {
                 BeginContext(1706, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -263,7 +263,7 @@ using DesafioRueda.Models;
             WriteLiteral(" |\r\n                    ");
             EndContext();
             BeginContext(1738, 59, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0a6d9c7554a44349b8e5254021fab7ac", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7a3e940ce9a643158512833f02668b86", async() => {
                 BeginContext(1786, 7, true);
                 WriteLiteral("Details");
                 EndContext();
@@ -298,7 +298,7 @@ using DesafioRueda.Models;
             WriteLiteral(" |\r\n                    ");
             EndContext();
             BeginContext(1821, 57, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7d267739d84a4b36860d499657839c50", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "548b3bb0f3fe438d95296214ceb68667", async() => {
                 BeginContext(1868, 6, true);
                 WriteLiteral("Delete");
                 EndContext();
