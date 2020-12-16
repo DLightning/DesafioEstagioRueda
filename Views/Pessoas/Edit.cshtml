@@ -47,7 +47,7 @@
                     {
                         <tr>
                             <td class="form-group">
-                                <select name="Telefones[@i].TipoTelefone">
+                                <select asp-for="@Model.Telefones[@i].TipoTelefone" name="Telefones[@i].TipoTelefone">
                                     <option value="Fixo">Fixo</option>
                                     <option value="Celular">Celular</option>
                                 </select>
